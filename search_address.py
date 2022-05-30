@@ -1,7 +1,7 @@
 from funs import get_address_from_sk_hex
 import random as rnd
 
-target = '1NiNja'
+target = '1XxXxx'
 n = len(target)
 m = 4
 total_tries = 10**8
