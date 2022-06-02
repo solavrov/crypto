@@ -1,9 +1,9 @@
 from funs import get_address_from_sk_hex
 import random as rnd
 
-target = '1XxXxx'
+target = '1Stas1'
 n = len(target)
-m = 4
+m = 3
 total_tries = 10**8
 info_step = total_tries / 1000
 
