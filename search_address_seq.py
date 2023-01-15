@@ -1,6 +1,6 @@
 from funs import get_address_from_sk_hex
 
-target = '1Stas1'
+target = '1NiNja1'
 n = len(target)
 m = 3
 block_size = 10 ** 8
