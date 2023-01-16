@@ -10,6 +10,7 @@ block_size = 10 ** 5
 
 print("Doing...")
 last_block_done = read_block(con)
+counter = 0
 
 while True:
     sk_dec_start = last_block_done * block_size + int(last_block_done == 0)
@@ -19,9 +20,10 @@ while True:
         if k[0:target_len] == target:
             print(k, "<-", sk_hex)
             add_keys(con, k, sk_hex)
+            counter += 1
     last_block_done += 1
     block_up(con)
-    print(last_block_done, "done")
+    print(last_block_done, "done,", "found:", counter)
 
 
 
