@@ -1,5 +1,5 @@
 import sqlite3
-from funs import get_address_from_sk_hex
+from funs import get_address_from_sk_hex, roundac
 from db_funs import read_block, block_up, add_keys
 
 con = sqlite3.connect("ninja.db")
@@ -7,6 +7,7 @@ con = sqlite3.connect("ninja.db")
 target = '1NiNja'
 target_len = len(target)
 block_size = 10 ** 5
+prob_to_fail = 1 - 1 / 58 ** 6
 
 print("Doing...")
 last_block_done = read_block(con)
@@ -23,7 +24,10 @@ while True:
             counter += 1
     last_block_done += 1
     block_up(con)
-    print(last_block_done, "done,", "found:", counter)
+    print(last_block_done, "done ,",
+          "found:", counter,
+          ", accrued prob:", roundac(100 * (1 - prob_to_fail ** (last_block_done * block_size))), '%')
+
 
 
 

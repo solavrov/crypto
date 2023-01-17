@@ -49,3 +49,6 @@ def get_key_from_phrase(phrase, num_of_hashes=1):
     address_b58 = get_address_from_sk_hex(sk_hex)
     return {'private_key': sk_wif, 'address': address_b58}
 
+
+def roundac(x, ac=4):
+    return round(10 ** ac * x) / 10 ** ac
