@@ -2,7 +2,7 @@ from funs import get_address_from_sk_hex
 
 target = '1NiNja1'
 n = len(target)
-m = 3
+m = 6
 block_size = 10 ** 8
 info_step = block_size / 1000
 

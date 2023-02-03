@@ -2,7 +2,7 @@ import sqlite3
 from funs import get_address_from_sk_hex, roundac
 from db_funs_mult import get_status, add_block_taken, mark_block_done, add_keys
 
-con = sqlite3.connect("minja.db")
+con = sqlite3.connect("Z:\\minja\\minja.db")
 
 target = '1NiNja'
 target_len = len(target)
@@ -28,6 +28,3 @@ while True:
     print(s.block_to_do, "done ,",
           "found:", counter,
           ", accrued prob:", roundac(100 * (1 - prob_to_fail ** (s.block_to_do * block_size))), '%')
-
-
-
