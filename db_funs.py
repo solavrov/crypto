@@ -19,6 +19,7 @@ def add_keys(connection, pub_key, pvt_key):
     connection.commit()
 
 
+
 # tests
 # con = sqlite3.connect("ninja.db")
 # print(read_block(con))
