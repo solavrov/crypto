@@ -1,6 +1,8 @@
 import sqlite3
-from funs import get_address_from_sk_hex, roundac
+import keyboard
+import sys
 from db_funs_mult import get_status, add_block_taken, mark_block_done, add_keys
+from funs import get_address_from_sk_hex, roundac
 
 con = sqlite3.connect("Z:\\minja\\minja.db")
 
@@ -24,6 +26,9 @@ while True:
             print(k, "<-", sk_hex)
             add_keys(con, k, sk_hex)
             counter += 1
+        if keyboard.is_pressed('windows+F12'):
+            con.close()
+            sys.exit()
     mark_block_done(con, s.block_to_do)
     print(s.block_to_do, "done ,",
           "found:", counter,
