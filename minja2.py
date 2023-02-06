@@ -41,7 +41,7 @@ if __name__ == '__main__':
         p = multiprocessing.Process(target=task, args=(i,))
         processes.append(p)
         p.start()
-        time.sleep(30/n)
+        time.sleep(40/n)
     for p in processes:
         p.join()
     con_clean = sqlite3.connect("Z:\\minja\\minja2.db")
