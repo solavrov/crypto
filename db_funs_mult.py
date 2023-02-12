@@ -66,3 +66,9 @@ def add_keys(connection, pub_key, pvt_key):
     cursor = connection.cursor()
     cursor.execute("INSERT INTO Keys (pubKey, pvtKey) VALUES ('" + str(pub_key) + "', '" + str(pvt_key) + "');")
     connection.commit()
+
+
+def count_found(connection):
+    cursor = connection.cursor()
+    return cursor.execute("SELECT COUNT(pubKey) FROM Keys;").fetchone()[0]
+
