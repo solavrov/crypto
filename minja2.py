@@ -2,7 +2,8 @@ import sqlite3
 import keyboard
 import time
 import multiprocessing
-from db_funs_mult import get_status, add_block_taken, mark_block_done, add_keys, clean_block_done, count_found
+from db_funs_mult import get_status, add_block_taken, mark_block_done, add_keys, \
+    clean_block_done, count_found, cut_block_done
 from funs import get_address_from_sk_hex, roundac
 
 
@@ -28,6 +29,7 @@ def task(minja_number):
                 con.close()
                 return 0
         mark_block_done(con, s.block_to_do)
+        cut_block_done(con)
         found = count_found(con)
         print(str(s.block_to_do) + " done by Minja #" + str(minja_number) +
               ", found: " + str(found - found0) +

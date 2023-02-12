@@ -50,6 +50,13 @@ def clean_block_done(connection):
     connection.commit()
 
 
+def cut_block_done(connection):
+    s = get_status(connection, fair=1)
+    cursor = connection.cursor()
+    cursor.execute("DELETE FROM BlockDone WHERE blockDone<" + str(s.block_to_do - 1))
+    connection.commit()
+
+
 def add_block_taken(connection, block):
     cursor = connection.cursor()
     cursor.execute("INSERT INTO BlockDone (blockDone, fair) VALUES (" + str(block) + ", 0);")
@@ -58,7 +65,7 @@ def add_block_taken(connection, block):
 
 def mark_block_done(connection, block):
     cursor = connection.cursor()
-    cursor.execute("UPDATE BlockDone SET fair=1 WHERE blockDone=" + str(block) + ";")
+    cursor.execute("UPDATE BlockDone SET fair=1 WHERE blockDone=" + str(block))
     connection.commit()
 
 
