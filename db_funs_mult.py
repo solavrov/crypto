@@ -79,3 +79,7 @@ def count_found(connection):
     cursor = connection.cursor()
     return cursor.execute("SELECT COUNT(pubKey) FROM Keys;").fetchone()[0]
 
+
+def read_addresses(connection):
+    cursor = connection.cursor()
+    return del_tuples(cursor.execute("SELECT pubKey FROM Keys").fetchall())
